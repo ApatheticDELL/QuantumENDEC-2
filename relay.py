@@ -17,10 +17,7 @@ import pyttsx3
 # [-] Audio Playout/Pass thru system
 # [X] Complete the QuantumENDEC.py code that starts everything
 
-# TODO (For WXV24 special edition, this is on ApatheticDELL now. I think i figured out Python enough from aaron's help :3 ) 
-# [ ] Add early WXR alert bot
-# [ ] Change TTS gen to playonlinux thing!
-# [ ] Specified audio device for playout
+# Test commit from VScode
 
 def GenTTS(stringy):
         print("Generating TTS...")
@@ -300,6 +297,7 @@ class Generation:
                 INSTRUCTION =  re.search(r'<instruction>\s*(.*?)\s*</instruction>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1).replace("###","")
             except:
                 INSTRUCTION = ""
+            
             BroadcastText = f"At {DATE} {SENDER} has issued {HEADLINE} {COVERAGE} {AREAS} {DESCRIPTION}. {INSTRUCTION}."
 
         #Generate PlayoutAudio
