@@ -37,4 +37,5 @@ CapEventToSameEvent = {
 	"testMessage": "ADR",
 	"911Service": "TOE",
 	"weather": "SPS",
+	"squall": "SMW",
 }
