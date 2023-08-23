@@ -16,7 +16,7 @@ ChatGPT ... chat.openai.com
 QuantumENDEC is a Canadian CAP Emergency Alerting Software. Its primary goal is to encode Canadian Emergency Alerts into S.A.M.E alerts!
 QuantumENDEC: The Future of ENDECs.
 
-### Install
+### Install (SECTION INCOMPLETE)
 Installing the QuantumENDEC is quite easy.
 You will first require the following...
 - FFMPEG
