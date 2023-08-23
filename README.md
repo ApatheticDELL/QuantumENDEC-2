@@ -3,7 +3,7 @@ ApatheticDELL presents...
 Version 2: The Python Edition
 
 ### Credits
-Devloped by...
+Developed by...
 Dell ... ApatheticDELL
 Aaron ... fire-tech5000
 BunnyTub ... gadielisawesome
@@ -23,9 +23,9 @@ You will first require the following...
 - Python3 (install pip3 too)
 ...to be installed on your System
 
-It is advised to use the latest version of python!
+It is advised to use the latest version of Python!
 
-Then install the python modules required using pip:
+Then install the Python modules required using pip:
 ```pip3 install {the modules required.. can be more than one?}```
 
 ### Setup
@@ -37,7 +37,7 @@ You can read about it on this PDF from Pelmorex: https://alerts.pelmorex.com/wp-
 Go into the config.json file to configure the software.
 You'll find discord webhook settings, along with filters for alert statuses, severity, and urgency.
 
-There's also some Experimental Settings with audio, buuut, best to leave them be since mostly their for the future.
+There's also some Experimental Settings with audio, but, best to leave them be since mostly they're for the future.
 
 After you're done configuring, start QuantumENDEC by just running...
 ```python3 QuantumENDEC.py```
@@ -49,6 +49,6 @@ This software ENDEC will NOT work with American CAP alerts, since it's designed 
 
 If you see anything about matches or match files, it just means that the software already processed the thing/file in question.
 
-Finally, even though this was coded from (mostly) the ground up, i'd still like to credit libmarleu's BashENDEC (which no longer exist on their page) for starting out the QuantumENDEC journey all the way in 2021...
+Finally, even though this was coded from (mostly) the ground up, I'd still like to credit libmarleu's BashENDEC (which no longer exists on their page) for starting out the QuantumENDEC journey all the way in 2021...
 
 And thanks to all who worked on this one, hell of an ENDEC...
