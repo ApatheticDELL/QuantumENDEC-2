@@ -11,7 +11,12 @@ print("BunnyTub ... gadielisawesome")
 
 time.sleep(4)
 
-os.remove("SameHistory.txt")
+try:
+    os.remove("SameHistory.txt")
+except:
+    with open("SameHistory.txt", "a") as f:
+        f.write(f"ZXZX-STARTER-\n")
+    f.close()
 
 dir = 'XMLhistory'
 for f in os.listdir(dir):
