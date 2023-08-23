@@ -5,17 +5,17 @@
     "UseSpecifiedAudioDevice": false,
     "SpecifiedAudioDevice": "SoundDeviceHere",
 
-    "Experimental Setting 1": "This only works for Linux with pulseaudio... it will mute the mantioned sink before an alert",
+    "Experimental Setting 1": "This only works for Linux with PulseAudio... it will mute the mentioned sink before an alert",
     "MuteVirturalAudioCable": false,
     "VirturalAudioCable": "V",
 
     "COMMENT0": "Discord webhook settings...",
-    "enable_discord_webhook": true,
+    "enable_discord_webhook": false,
     "webhook_color": "ff00ff",
-    "webhook_author_name": "WXV24",
-    "webhook_author_URL": "https://sites.google.com/view/wxv24",
-    "webhook_author_iconURL": "https://media.discordapp.net/attachments/589599667323404288/1140193192663335042/WXV24.png?width=467&height=467",
-    "webhook_URL": "https://discord.com/api/webhooks/1140404220017791084/LYyOYqUuSG0Xhh0yhDtRaWEoBLKhTJfaoxyjzzMUiTWWFUWGU78Z8vhFbsXxsUehCk0s",
+    "webhook_author_name": "Author Name",
+    "webhook_author_URL": "https:/someWebsite",
+    "webhook_author_iconURL": "https://discord/iconURLhere",
+    "webhook_URL": "https://discord/webhookURLhere",
 
 
     "COMMENT1": "Allow/Dis-Allow the relay of the following CAP-CP statuses...",
@@ -26,15 +26,15 @@
     "Extreme": true,
     "Severe": true,
     "Moderate": true,
-    "Minor": false,
+    "Minor": true,
     "Unknown": true,
 
     "COMMENT3": "Allow/Dis-Allow the relay of the following CAP-CP urgency...",
     "Immediate": true,
     "Expected": true,
     "Future": true,
-    "Past": false,
+    "Past": true,
 
-    "COMMENT4": "Input CAP-CP Geocodes to relay from instead of relaying Canada-wide (yes it does that by deafult). You'll need to figure this out a little. (Hint, read GeoToCLC.csv)",
+    "COMMENT4": "Input CAP-CP Geocodes to relay from instead of relaying Canada-wide (yes it does that by default). You'll need to figure this out a little. (Hint, read GeoToCLC.csv)",
     "AllowedLocations_Geocodes": []
 }
