@@ -23,8 +23,10 @@ QuantumENDEC: The Future of ENDECs.
 ### Install (SECTION INCOMPLETE)
 Installing the QuantumENDEC is quite easy.
 You will first require the following...
+
 - FFMPEG
 - Python3 (install pip3 too)
+
 ...to be installed on your System
 
 It is advised to use the latest version of Python!
