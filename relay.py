@@ -258,46 +258,29 @@ class Generation:
         else:
             #Manually generates the BroadcastText if there's no broadcast text value
             Sent = re.search(r'<sent>\s*(.*?)\s*</sent>', RelayXML, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1)
-            DATE = datetime.fromisoformat(Sent).strftime("%H:%M UTC, %B %d, %Y.")
+            DATE = datetime.fromisoformat(Sent).strftime("%H:%M Coordinated Universal Time, %B %d, %Y.")
             SENDER = re.search(r'<senderName>\s*(.*?)\s*</senderName>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1)
             HEADLINE = EAS2Text(GeneratedHeader).evntText
+            AREAS = re.findall(r'<areaDesc>\s*(.*?)\s*</areaDesc>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL)
+            AREAS = ", ".join(AREAS)
+            AREAS = ".".join(AREAS.rsplit(",",1))
+            AREAS = AREAS + "."
+
             if("layer:EC-MSC-SMC:1.0:Alert_Coverage" in InfoEN):
                 regexcoverage = re.search(r'<valueName>layer:EC-MSC-SMC:1.0:Alert_Coverage</valueName><value>\s*(.*?)\s*</value>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1)
                 COVERAGE = f"In {regexcoverage} for:"
             else:
                 COVERAGE = "For:"
-            
-            if("EC-MSC-SMC:1.1:Newly_Active_Areas" in InfoEN):
-                try:
-                    regexnewactive = re.search(r'<parameter><valueName>layer:EC-MSC-SMC:1.1:Newly_Active_Areas</valueName><value>\s*(.*?)\s*</value>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1)
-                    if(len(regexnewactive) == 0):
-                        AREAS = re.findall(r'<areaDesc>\s*(.*?)\s*</areaDesc>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL)
-                        AREAS = ", ".join(AREAS)
-                    else:
-                        AREAS = ""
-                        updatedLocations = regexnewactive.split(",")
-                        CLC = re.findall(r'<area><areaDesc>\s*(.*?)\s*</areaDesc><polygon>.*?</polygon><geocode><valueName>layer:EC-MSC-SMC:1\.0:CLC</valueName><value>\s*(.*?)\s*</value>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL)
-                        for CLCLocation in CLC:
-                            if(CLCLocation[1] in updatedLocations):
-                                AREAS += f"{CLCLocation[0]}, "
-                except:
-                    AREAS = re.findall(r'<areaDesc>\s*(.*?)\s*</areaDesc>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL)
-                    AREAS = ", ".join(AREAS)
-            else:
-                AREAS = re.findall(r'<areaDesc>\s*(.*?)\s*</areaDesc>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL)
-                AREAS = ", ".join(AREAS)
-            AREAS = ".".join(AREAS.rsplit(",",1))
-            AREAS = AREAS + "."
+
             try:
                 DESCRIPTION =  re.search(r'<description>\s*(.*?)\s*</description>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1).replace("###","")
             except:
                 DESCRIPTION = ""
-            
+
             try:
                 INSTRUCTION =  re.search(r'<instruction>\s*(.*?)\s*</instruction>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1).replace("###","")
             except:
                 INSTRUCTION = ""
-            
             BroadcastText = f"At {DATE} {SENDER} has issued {HEADLINE} {COVERAGE} {AREAS} {DESCRIPTION}. {INSTRUCTION}."
 
         #Generate PlayoutAudio
