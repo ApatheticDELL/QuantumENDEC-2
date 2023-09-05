@@ -122,9 +122,13 @@ class Check:
                 print("not allowed, exiting")
                 exit()
 
-        CapAllowsCheck(re.search(r'<status>\s*(.*?)\s*</status>', RelayXML, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
-        CapAllowsCheck(re.search(r'<severity>\s*(.*?)\s*</severity>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
-        CapAllowsCheck(re.search(r'<urgency>\s*(.*?)\s*</urgency>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
+        BroadI = re.search(r'<valueName>layer:SOREM:1.0:Broadcast_Immediately</valueName><value>\s*(.*?)\s*</value>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1)
+        if("Yes" in BroadI):
+            print("Broadcast_Immediately is set, filter check is skipped.")
+        else:
+            CapAllowsCheck(re.search(r'<status>\s*(.*?)\s*</status>', RelayXML, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
+            CapAllowsCheck(re.search(r'<severity>\s*(.*?)\s*</severity>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
+            CapAllowsCheck(re.search(r'<urgency>\s*(.*?)\s*</urgency>', InfoEN, re.MULTILINE | re.IGNORECASE | re.DOTALL).group(1))
         
         if len(ConfigData['AllowedLocations_Geocodes']) == 0:
             pass
