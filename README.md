@@ -1,6 +1,5 @@
 ApatheticDELL presents...
-# QuantumENDEC
-Version 2: The Python Edition
+# QuantumENDEC (v2.0.0)
 
 ### Credits
 Developed by...
